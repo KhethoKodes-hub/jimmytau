@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimmy Tau Investments | Socio-Economic Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-sunset: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --gradient-ocean: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-fire: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);
+            --gradient-emerald: linear-gradient(135deg, #06beb6 0%, #48b1bf 100%);
+            --gradient-cosmic: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+            --gradient-rose: linear-gradient(135deg, #f857a6 0%, #ff5858 100%);
+            --gradient-mint: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --gradient-twilight: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #4facfe;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.16);
+            --shadow-xl: 0 24px 64px rgba(0,0,0,0.2);
+            --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Enhanced Navbar */
+        .navbar {
+            background: rgba(15, 23, 42, 0.98) !important;
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-lg);
+            background: rgba(15, 23, 42, 0.99) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 1.75rem;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-sunset);
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        .navbar-brand:hover::after {
+            width: 100%;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            transition: var(--transition);
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-ocean);
+            transform: translateX(-50%);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .nav-link:hover::before {
+            width: 60%;
+        }
+
+        .btn-gradient {
+            background: var(--gradient-purple);
+            border: none;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-gradient::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-gradient:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Animated Background Gradient */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero Section Enhanced */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #fee140 0%, #fa709a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 1.5rem 2rem;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover::before {
+            animation: shine 1.5s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: white;
+            display: block;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 0.8s ease 0.3s both;
+        }
+
+        .hero-image img {
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 250px;
+            height: 250px;
+            background: var(--gradient-sunset);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            z-index: -1;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-ocean);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            z-index: -1;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(0) translateX(-10px); }
+            75% { transform: translateY(20px) translateX(5px); }
+        }
+
+        /* Enhanced Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-ocean);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* Enhanced About Card */
+        .about-card {
+            background: white;
+            border-radius: 35px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            height: 100%;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-purple);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .about-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .about-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-glow);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .about-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 35px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 3px solid transparent;
+        }
+
+        .about-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-purple);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+            mix-blend-mode: overlay;
+        }
+
+        .about-image-wrapper:hover::before {
+            opacity: 0.3;
+        }
+
+        .about-image-wrapper:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: var(--shadow-glow);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image-wrapper:hover img {
+            transform: scale(1.15);
+        }
+
+        /* Enhanced Sector Cards */
+        .sector-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .sector-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-purple);
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .sector-card:hover::before {
+            top: 0;
+        }
+
+        .sector-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: var(--shadow-glow);
+            border-color: transparent;
+        }
+
+        .sector-card > * {
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .sector-card:hover .sector-icon,
+        .sector-card:hover h4,
+        .sector-card:hover p {
+            color: white;
+        }
+
+        .sector-icon {
+            font-size: 4rem;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .sector-card:hover .sector-icon {
+            transform: scale(1.3) rotateY(360deg);
+            -webkit-text-fill-color: white;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.5));
+        }
+
+        /* Dynamic Gradient Backgrounds for Sectors */
+        .sector-card:nth-child(1)::before { background: var(--gradient-sunset); }
+        .sector-card:nth-child(2)::before { background: var(--gradient-ocean); }
+        .sector-card:nth-child(3)::before { background: var(--gradient-fire); }
+        .sector-card:nth-child(4)::before { background: var(--gradient-emerald); }
+        .sector-card:nth-child(5)::before { background: var(--gradient-cosmic); }
+        .sector-card:nth-child(6)::before { background: var(--gradient-rose); }
+
+        /* Enhanced Portfolio Cards */
+        .portfolio-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            height: 100%;
+            border: 2px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .portfolio-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-purple);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .portfolio-card:hover::after {
+            opacity: 0.03;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-glow);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .portfolio-image {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover .portfolio-image img {
+            transform: scale(1.2) rotate(2deg);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay i {
+            color: white;
+            font-size: 3.5rem;
+            transform: scale(0) rotate(-180deg);
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover .portfolio-overlay i {
+            transform: scale(1) rotate(0deg);
+        }
+
+        .portfolio-overlay .view-btn {
+            background: white;
+            color: var(--primary);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .portfolio-card:hover .portfolio-overlay .view-btn {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.1s;
+        }
+
+        .portfolio-overlay .view-btn:hover {
+            background: var(--gradient-sunset);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: var(--gradient-purple);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover .portfolio-tag {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Enhanced Impact Section */
+        .impact-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .impact-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite reverse;
+        }
+
+        .impact-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
+            transition: var(--transition);
+        }
+
+        .impact-card:hover::before {
+            top: -50%;
+            left: -50%;
+            animation: pulse 1.5s ease-in-out;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .impact-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            display: block;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        .impact-card:hover .impact-number {
+            transform: scale(1.2);
+            text-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Enhanced Contact Form */
+        .contact-form {
+            background: white;
+            border-radius: 35px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: var(--transition);
+        }
+
+        .contact-form:hover {
+            box-shadow: var(--shadow-glow);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .form-control, .form-select {
+            border-radius: 20px;
+            padding: 1.25rem 1.75rem;
+            border: 2px solid rgba(0,0,0,0.1);
+            transition: var(--transition);
+            background: rgba(248, 250, 252, 0.5);
+        }
+
+        .form-control:hover, .form-select:hover {
+            border-color: rgba(102, 126, 234, 0.3);
+            background: white;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.15);
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: float 30s ease-in-out infinite;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+            margin-right: 0.75rem;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--gradient-purple);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .social-link i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-link:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-link:hover {
+            color: white;
+            transform: translateY(-8px) rotate(360deg) scale(1.1);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link:nth-child(1):hover { background: #0077b5; }
+        .social-link:nth-child(2):hover { background: #1da1f2; }
+        .social-link:nth-child(3):hover { background: #1877f2; }
+        .social-link:nth-child(4):hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+        /* Enhanced Filter Buttons */
+        .filter-btn {
+            padding: 0.875rem 2.5rem;
+            border-radius: 50px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            background: white;
+            color: var(--primary);
+            font-weight: 600;
+            transition: var(--transition);
+            margin: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--gradient-purple);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .filter-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .filter-btn:hover::before, .filter-btn.active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            color: white;
+            border-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 991px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+
+            .stat-card {
+                flex: 1 1 calc(50% - 1rem);
+                min-width: 140px;
+            }
+
+            .impact-number {
+                font-size: 3rem;
+            }
+
+            .sector-icon {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .filter-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .portfolio-image {
+                height: 220px;
+            }
+
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .stat-card {
+                flex: 0 0 100%;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding: 80px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn-gradient {
+                padding: 0.65rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .impact-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .about-card, .contact-form {
+                padding: 2rem 1.25rem;
+            }
+
+            .sector-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .filter-btn {
+                padding: 0.65rem 1.25rem;
+                font-size: 0.85rem;
+                margin: 0.25rem;
+            }
+        }
+
+        /* Smooth transitions for mobile */
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal {
+                transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .stat-card:active,
+            .sector-card:active,
+            .portfolio-card:active,
+            .impact-card:active {
+                transform: scale(0.98);
+            }
+
+            .btn-gradient:active {
+                transform: scale(0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">JimmyTau</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="#sectors">Sectors</a></li>-->
+                    <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>-->
+                    <!--<li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>-->
+                    <li class="nav-item"><a class="nav-link btn-gradient" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1>Bridging Innovation with <span>Socio-Economic Solutions</span></h1>
+                    <p>Creating innovative, valuable and holistic solutions that address South Africa's most pressing challenges through strategic partnerships.</p>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <span class="stat-number" data-count="24">0</span>
+                            <span class="stat-label">Active Projects</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-count="8">0</span>
+                            <span class="stat-label">Sectors</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-count="42">0</span>
+                            <span class="stat-label">Partners</span>
+                        </div>
+                    </div>
+                    <a href="#portfolio" class="btn btn-gradient btn-lg me-3 mb-2">Explore Portfolio</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg mb-2">Get in Touch</a>
+                </div>
+                <div class="col-lg-6 hero-image mt-5 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Unconventional Approach</h2>
+                <p>We bridge the gap between innovative entrepreneurs, the private sector, and the public sector to create transformative solutions.</p>
+            </div>
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6 reveal">
+                    <div class="about-card">
+                        <h3 class="mb-4">Creating Holistic Value Beyond Returns</h3>
+                        <p>As an anchor in the integration of versatile teams, we ensure that creating innovative, valuable and holistic solutions that challenge socio-economic issues remains a pivotal objective to all stakeholders.</p>
+                        <p>Our diversified portfolio is invested in the coalition of skilled individuals who share a drive to transform the quality of service delivery and a passion to create a valuable experience for all individuals residing in South Africa.</p>
+                        <p class="mb-4">The projects and activities we have been involved with have exposed us to a vast array of business sectors. Therefore what business sector we steer towards, lies with the opportunity ahead.</p>
+                        <a href="#contact" class="btn btn-gradient">Partner With Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal">
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Innovation" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectors Section -->
+    <section id="sectors" style="background: var(--light);">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Diverse Investment Sectors</h2>
+                <p>We invest across a broad spectrum of industries, focusing on opportunities that drive socio-economic transformation.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="sector-card">
+                        <div class="sector-icon"><i class="fas fa-solar-panel"></i></div>
+                        <h4>Renewable Energy</h4>
+                        <p>Investing in sustainable energy solutions to power communities and reduce environmental impact.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="sector-card">
+                        <div class="sector-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h4>Technology & Innovation</h4>
+                        <p>Supporting tech entrepreneurs developing solutions for South Africa's unique challenges.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="sector-card">
+                        <div class="sector-icon"><i class="fas fa-home"></i></div>
+                        <h4>Affordable Housing</h4>
+                        <p>Creating quality, sustainable housing solutions for underserved communities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="sector-card">
+                        <div class="sector-icon"><i class="fas fa-seedling"></i></div>
+                        <h4>Agriculture & Food Security</h4>
+                        <p>Investing in agricultural innovations that increase food production and create rural employment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="sector-card">
+                        <div class="sector-icon"><i class="fas fa-stethoscope"></i></div>
+                        <h4>Healthcare Access</h4>
+                        <p>Improving healthcare delivery and accessibility through strategic investments.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="sector-card">
+                        <div class="sector-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>Education & Skills Development</h4>
+                        <p>Supporting educational initiatives that equip South Africans with future-ready skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Portfolio & Projects</h2>
+                <p>Explore some of our recent investments and initiatives that are making a tangible difference.</p>
+            </div>
+            <div class="text-center mb-5 reveal">
+                <button class="filter-btn active" data-filter="all"><span>All Projects</span></button>
+                <button class="filter-btn" data-filter="energy"><span>Energy</span></button>
+                <button class="filter-btn" data-filter="housing"><span>Housing</span></button>
+                <button class="filter-btn" data-filter="tech"><span>Technology</span></button>
+            </div>
+            <div class="row g-4" id="portfolioGrid">
+                <div class="col-lg-4 col-md-6 portfolio-item reveal" data-category="energy">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar">
+                            <div class="portfolio-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <a href="#" class="view-btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Renewable Energy</span>
+                            <h4>Solar Power for Rural Communities</h4>
+                            <p>Providing sustainable electricity to 15,000 households through community-owned solar microgrids.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item reveal" data-category="housing">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Housing">
+                            <div class="portfolio-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <a href="#" class="view-btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Affordable Housing</span>
+                            <h4>Green Housing Development</h4>
+                            <p>Building 500 energy-efficient, affordable homes with integrated community facilities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item reveal" data-category="tech">
+                    <div class="portfolio-card">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tech">
+                            <div class="portfolio-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <a href="#" class="view-btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <span class="portfolio-tag">Technology</span>
+                            <h4>Digital Skills Training Platform</h4>
+                            <p>An online platform that has trained over 10,000 youth in digital skills for the modern workforce.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="impact-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2 style="color: white;">Our Measurable Impact</h2>
+                <p style="color: rgba(255,255,255,0.9);">We believe in creating value that can be measured not just in financial returns, but in socio-economic transformation.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="impact-card">
+                        <span class="impact-number" data-count="1250">0</span>
+                        <span class="stat-label">Jobs Created</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="impact-card">
+                        <span class="impact-number" data-count="87">0</span>
+                        <span class="stat-label">Communities Served</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="impact-card">
+                        <span class="impact-number" data-count="320">0</span>
+                        <span class="stat-label">Capital Deployed (ZAR mil)</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="impact-card">
+                        <span class="impact-number" data-count="56">0</span>
+                        <span class="stat-label">Strategic Partnerships</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Partner With Us</h2>
+                <p>Whether you're an entrepreneur with an innovative idea, a private sector partner, or a public sector entity looking for collaborative solutions, we'd love to connect.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Subject" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" placeholder="Tell us about your project or partnership idea..." required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-gradient btn-lg">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <h3 class="footer-logo mb-3">JimmyTau</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Bridging the gap between innovative entrepreneurs, the private sector and the public sector to create socio-economic solutions for South Africa.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition);">Home</a></li>
+                        <li class="mb-2"><a href="#about" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition);">About</a></li>
+                        <li class="mb-2"><a href="#sectors" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition);">Sectors</a></li>
+                        <li class="mb-2"><a href="#portfolio" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition);">Portfolio</a></li>
+                        <li class="mb-2"><a href="#impact" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition);">Impact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-3">Sectors</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2" style="color: rgba(255,255,255,0.7);">Renewable Energy</li>
+                        <li class="mb-2" style="color: rgba(255,255,255,0.7);">Technology</li>
+                        <li class="mb-2" style="color: rgba(255,255,255,0.7);">Affordable Housing</li>
+                        <li class="mb-2" style="color: rgba(255,255,255,0.7);">Agriculture</li>
+                        <li class="mb-2" style="color: rgba(255,255,255,0.7);">Healthcare</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2" style="color: rgba(255,255,255,0.7);"><i class="fas fa-map-marker-alt me-2"></i> Johannesburg, SA</li>
+                        <li class="mb-2" style="color: rgba(255,255,255,0.7);"><i class="fas fa-envelope me-2"></i> info@jimmytau.co.za</li>
+                        <li class="mb-2" style="color: rgba(255,255,255,0.7);"><i class="fas fa-phone me-2"></i> +27 11 123 4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: rgba(255,255,255,0.5); margin: 0;">&copy; <span id="year">2024</span> Jimmy Tau Investments. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 20);
+            }
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        const counters = entry.target.querySelectorAll('[data-count]');
+                        counters.forEach(counter => {
+                            if (!counter.classList.contains('counted')) {
+                                counter.classList.add('counted');
+                                const target = parseInt(counter.getAttribute('data-count'));
+                                animateCounter(counter, target);
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 400);
+                        }
+                    });
+                });
+            });
+
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                            if (bsCollapse) bsCollapse.hide();
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('footer a').forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.color = 'white';
+                    this.style.transform = 'translateX(5px)';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.color = 'rgba(255,255,255,0.7)';
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
